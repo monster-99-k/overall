@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 메타 태그 -->
+        <title>유아 발달 관찰 도구 - 우리 아이 관찰하기 | 무료 도구</title>
+        <meta name="description" content="유아의 인식과 행동 패턴을 관찰하는 참고 도구입니다. 부모가 아이를 이해하는데 도움이 됩니다.">
+        <meta name="keywords" content="유아 발달, 아이 관찰, 발달 관찰, 아이 이해, 무료 도구">
+    <meta name="author" content="온라인 도구">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 태그 -->
+    <meta property="og:title" content="유아 발달 관찰 도구">
+    <meta property="og:description" content="유아의 인식과 행동 패턴을 관찰하는 참고 도구입니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://text-number.netlify.app/spectrum-selfcheck.html">
+    <meta property="og:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="온라인 도구">
+    
+    <!-- Twitter Card 태그 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="자폐 스펙트럼 자가 체크 도구">
+    <meta name="twitter:description" content="자신의 인식 패턴과 행동 특성을 이해하는 자기 체크 도구입니다.">
+    <meta name="twitter:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://text-number.netlify.app/spectrum-selfcheck.html">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <meta name="google-site-verification" content="LLpjy6G22095Ds0iZXaDi63E5TO787iWQAoA8qj3ieA" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WS3T8SS5');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="naver-site-verification" content="87ec35ac7c57ace0eb1c50f6295ddb45a4e98538" />
+<meta name="msvalidate.01" content="2E5341F8FFB79340AE9E191AA40D41C3" />
+</head>
+<body>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "15f67b7ace6bf10";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS3T8SS5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- 네비게이션 바 컨테이너 (header.js에서 동적으로 생성됨) -->
+    <div id="header-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>🧩 유아 발달 관찰 도구</h1>
+            <p>유아의 인식과 행동 패턴을 관찰하기 위한 참고 도구</p>
+            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 15px; margin-top: 15px; color: #856404;">
+                ⚠️ <strong>중요 안내:</strong> 이 도구는 참고용이며 의학적 진단이 아닙니다. 발달의 차이는 정상적이며, 정확한 평가는 전문가와 상담하시기 바랍니다.
+            </div>
+        </header>
+
+        <main>
+            <div class="test-section" id="testSection">
+                <!-- 시작 화면 -->
+                <div class="test-start" id="testStart">
+                    <div class="test-image">
+                        <div class="test-icon">🧩</div>
+                    </div>
+                    <h2>유아 발달 관찰</h2>
+                    <p>우리 아이의 인식과 행동 패턴을 관찰해봅시다</p>
+                    <p style="font-size: 0.9rem; color: #6c757d;">15가지 관찰 질문으로 알아보는 우리 아이의 특성</p>
+                    <button class="start-btn" id="startBtn">관찰 시작하기</button>
+                </div>
+
+                <!-- 질문 화면 -->
+                <div class="test-question" id="testQuestion" style="display: none;">
+                    <h2 id="questionText">질문 내용</h2>
+                    <div class="options-container">
+                        <button class="option-btn" data-value="0">전혀 그렇지 않다</button>
+                        <button class="option-btn" data-value="1">그렇지 않다</button>
+                        <button class="option-btn" data-value="2">보통이다</button>
+                        <button class="option-btn" data-value="3">그렇다</button>
+                        <button class="option-btn" data-value="4">매우 그렇다</button>
+                    </div>
+                    <p class="progress-text" id="progressText">질문 1 / 15</p>
+                </div>
+
+                <!-- 결과 화면 -->
+                <div class="test-result" id="testResult" style="display: none;">
+                    <div class="result-image">
+                        <div class="result-icon" id="resultIcon">🧩</div>
+                    </div>
+                    <h2 id="resultTitle">결과 제목</h2>
+                    <div class="result-score" id="resultScore"></div>
+                    <div class="result-description" id="resultDescription">
+                        <p>결과 설명이 여기 표시됩니다.</p>
+                    </div>
+                    <div class="result-warning" style="background: #d4edda; border: 2px solid #28a745; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                        <p style="color: #155724; margin: 0;"><strong>💡 참고사항:</strong> 이 결과는 발달 관찰을 위한 참고용입니다. 모든 아이는 고유한 발달 속도와 특성을 가지고 있으며, 정확한 평가를 위해서는 소아과나 발달 전문가와 상담하시기 바랍니다.</p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="retry-btn" id="retryBtn">다시 해보기</button>
+                        <button class="share-btn" id="shareBtn">결과 공유하기</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 온라인 도구 모음 - 무료 유아 발달 관찰 도구</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/spectrum-selfcheck.js"></script>
+</body>
+</html>
+

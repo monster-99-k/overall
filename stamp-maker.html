@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 메타 태그 -->
+    <title>도장 만들기 - 무료 온라인 도장 생성기 | 도장 이미지 만들기</title>
+    <meta name="description" content="글자를 입력하고 글꼴을 선택해서 나만의 도장을 만들어보세요. 무료로 도장 이미지를 생성하고 다운로드할 수 있습니다.">
+    <meta name="keywords" content="도장 만들기, 도장 생성기, 무료 도장, 도장 이미지, 도장 인";
+    <meta name="author" content="온라인 도구">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 태그 -->
+    <meta property="og:title" content="도장 만들기 - 무료 온라인 도장 생성기">
+    <meta property="og:description" content="글자를 입력하고 글꼴을 선택해서 나만의 도장을 만들어보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://text-number.netlify.app/stamp-maker.html">
+    <meta property="og:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="온라인 도구">
+    
+    <!-- Twitter Card 태그 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="도장 만들기 - 무료 온라인 도장 생성기">
+    <meta name="twitter:description" content="글자를 입력하고 글꼴을 선택해서 나만의 도장을 만들어보세요.">
+    <meta name="twitter:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://text-number.netlify.app/stamp-maker.html">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <meta name="google-site-verification" content="LLpjy6G22095Ds0iZXaDi63E5TO787iWQAoA8qj3ieA" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WS3T8SS5');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="naver-site-verification" content="87ec35ac7c57ace0eb1c50f6295ddb45a4e98538" />
+<meta name="msvalidate.01" content="2E5341F8FFB79340AE9E191AA40D41C3" />
+</head>
+<body>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "15f67b7ace6bf10";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS3T8SS5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- 네비게이션 바 컨테이너 (header.js에서 동적으로 생성됨) -->
+    <div id="header-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>🔖 도장 만들기</h1>
+            <p>나만의 도장을 만들어보세요</p>
+        </header>
+
+        <main>
+            <div class="stamp-section">
+                <h2>도장 생성기</h2>
+                <p class="description">글자를 입력하고 옵션을 선택해서 도장을 만들어보세요. 미리보기를 확인하고 다운로드할 수 있습니다.</p>
+                
+                <!-- 텍스트 입력 -->
+                <div class="stamp-input-section">
+                    <div class="input-group">
+                        <label for="stampText">도장에 넣을 글자</label>
+                        <input type="text" id="stampText" placeholder="예: 인, 임금, 수결, 성명" maxlength="10">
+                        <small>최대 10글자까지 입력 가능</small>
+                    </div>
+                </div>
+                
+                <!-- 옵션 선택 -->
+                <div class="stamp-options">
+                    <h3>도장 옵션</h3>
+                    <div class="option-row">
+                        <div class="stamp-option-group">
+                            <label>도장 모양</label>
+                            <div class="shape-buttons">
+                                <button class="shape-btn active" data-shape="circle">⭕ 원형</button>
+                                <button class="shape-btn" data-shape="square">⬛ 사각형</button>
+                            </div>
+                        </div>
+                        <div class="stamp-option-group">
+                            <label>글꼴</label>
+                            <select id="fontSelect" class="stamp-select">
+                                <option value="Pretendard">기본 글꼴</option>
+                                <option value="ChosunIlboMyungjo">조선일보 명조</option>
+                                <option value="Soonbatang">순바탕</option>
+                                <option value="KccAnjunggeun">안중근체</option>
+                                <option value="SolmoeKimDaegeon">솔뫼 김대건</option>
+                                <option value="Joseon100Years">조선100년</option>
+                                <option value="serif">명조체</option>
+                                <option value="fantasy">판서체</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="stamp-option-group">
+                            <label>도장 크기</label>
+                            <input type="range" id="sizeRange" min="150" max="300" value="200">
+                            <span id="sizeValue">200px</span>
+                        </div>
+                        <div class="stamp-option-group">
+                            <label>글자 색상</label>
+                            <input type="color" id="textColor" value="#FF0000">
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="stamp-option-group">
+                            <label>테두리</label>
+                            <input type="range" id="borderRange" min="0" max="20" value="5">
+                            <span id="borderValue">5px</span>
+                        </div>
+                        <div class="stamp-option-group">
+                            <label>테두리 색상</label>
+                            <input type="color" id="borderColor" value="#FF0000">
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="stamp-option-group">
+                            <label>
+                                <input type="checkbox" id="showIn" checked>
+                                사각형 도장에 "인" 자 표시
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 도장 표시 (가운데 정렬, 자동 높이) -->
+                <div style="text-align:center;">
+                    <div id="stampOutput" class="stamp-output"></div>
+                </div>
+                
+                <!-- 동작 버튼 -->
+                <div class="stamp-actions">
+                    <button id="generateBtn" class="generate-btn">도장 만들기</button>
+                    <button id="downloadBtn" class="download-btn" style="display:none;">PNG 다운로드</button>
+                    <button id="resetBtn" class="reset-btn">초기화</button>
+                </div>
+
+                <div class="stamp-info">
+                    <h3>💡 사용 방법</h3>
+                    <ol>
+                        <li>도장에 넣을 글자를 입력합니다 (1~10글자)</li>
+                        <li>원하는 도장 모양을 선택합니다 (원형 또는 사각형)</li>
+                        <li>글꼴과 색상을 선택합니다</li>
+                        <li>도장 크기를 조절합니다</li>
+                        <li>'도장 만들기' 버튼을 클릭합니다</li>
+                        <li>'이미지 다운로드' 버튼으로 저장합니다</li>
+                    </ol>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 온라인 도구 모음 - 무료 도장 만들기</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/stamp-maker.js"></script>
+</body>
+</html>
+

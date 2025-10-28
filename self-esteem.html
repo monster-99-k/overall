@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자존감 테스트 | 온라인 도구</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>자존감 테스트</h1>
+            <p>신뢰도 높은 외부 검사 페이지로 이동하여 자존감을 간편하게 점검하세요.</p>
+        </header>
+
+        <main>
+            <section class="test-section" id="selfEsteemRoot">
+                <div class="test-start" style="text-align:center;">
+                    <h2>자존감 테스트</h2>
+                    <p style="color:#6c757d; margin:10px 0 25px;">아래 시작 버튼을 누르고 질문에 답해보세요.</p>
+                    <button id="start-channel" class="generate-btn">테스트 시작</button>
+                </div>
+
+                <div class="test-question" id="quizContainer" style="display:none;">
+                    <h2 id="questionTitle">질문</h2>
+                    <div id="answers" class="options-container"></div>
+                    <div class="action-buttons" style="margin-top:20px; display:flex; gap:12px; justify-content:center;">
+                        <button id="prevBtn" class="reset-btn" style="display:none;">이전</button>
+                        <button id="nextBtn" class="generate-btn" style="display:none;">다음</button>
+                    </div>
+                    <p id="progress" class="progress-text"></p>
+                </div>
+
+                <div class="test-result" id="resultContainer" style="display:none;">
+                    <h2>결과</h2>
+                    <div class="result-description" id="resultSummary"></div>
+                    <div class="result-actions">
+                        <button id="retryBtn" class="reset-btn">다시 하기</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 온라인 도구 모음</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/self-esteem.js"></script>
+</body>
+</html>
+
+

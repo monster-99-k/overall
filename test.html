@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO 메타 태그 -->
+    <title>무료 성격 테스트 - 당신의 성격 유형을 알아보세요</title>
+    <meta name="description" content="간단한 질문으로 당신의 성격 유형을 알아보는 무료 테스트입니다.">
+    <meta name="keywords" content="성격 테스트, 성격 유형, 무료 테스트, 심리 테스트">
+    <meta name="author" content="온라인 테스트">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 태그 -->
+    <meta property="og:title" content="무료 성격 테스트">
+    <meta property="og:description" content="간단한 질문으로 당신의 성격 유형을 알아보세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://text-number.netlify.app/test.html">
+    <meta property="og:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="온라인 테스트">
+    
+    <!-- Twitter Card 태그 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="무료 성격 테스트">
+    <meta name="twitter:description" content="간단한 질문으로 당신의 성격 유형을 알아보세요.">
+    <meta name="twitter:image" content="https://text-number.netlify.app/assets/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://text-number.netlify.app/test.html">
+    
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <meta name="google-site-verification" content="LLpjy6G22095Ds0iZXaDi63E5TO787iWQAoA8qj3ieA" />
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WS3T8SS5');</script>
+<!-- End Google Tag Manager -->
+
+<meta name="naver-site-verification" content="87ec35ac7c57ace0eb1c50f6295ddb45a4e98538" />
+<meta name="msvalidate.01" content="2E5341F8FFB79340AE9E191AA40D41C3" />
+</head>
+<body>
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "15f67b7ace6bf10";
+if(window.wcs) {
+  wcs_do();
+}
+</script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS3T8SS5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    <!-- 네비게이션 바 컨테이너 (header.js에서 동적으로 생성됨) -->
+    <div id="header-container"></div>
+
+    <div class="container">
+        <header>
+            <h1>🧪 연애 스타일 테스트</h1>
+            <p>에겐 vs 테토 유형을 알아보세요</p>
+        </header>
+
+        <main>
+            <div class="test-section" id="testSection">
+                <!-- 시작 화면 -->
+                <div class="test-start" id="testStart">
+                    <div class="test-image">
+                        <div class="test-icon">💕</div>
+                    </div>
+                    <h2>연애 스타일 테스트</h2>
+                    <p>당신은 에겐형인가요, 테토형인가요?</p>
+                    <p style="font-size: 0.9rem; color: #6c757d;">쉬운 질문으로 알아보는 연애 스타일</p>
+                    <button class="start-btn" id="startBtn">테스트 시작하기</button>
+                </div>
+
+                <!-- 성별 선택 화면 -->
+                <div class="test-gender" id="testGender" style="display: none;">
+                    <h2>성별을 선택해주세요</h2>
+                    <div class="gender-buttons">
+                        <button class="gender-btn" data-gender="male">👨 남자</button>
+                        <button class="gender-btn" data-gender="female">👩 여자</button>
+                    </div>
+                    <p class="progress-text">질문 1 / 5</p>
+                </div>
+
+                <!-- 질문 화면 -->
+                <div class="test-question" id="testQuestion" style="display: none;">
+                    <h2 id="questionText">질문 내용</h2>
+                    <div class="options-container">
+                        <button class="option-btn" data-value="A">선택지 A</button>
+                        <button class="option-btn" data-value="B">선택지 B</button>
+                    </div>
+                    <p class="progress-text" id="progressText">질문 1 / 5</p>
+                </div>
+
+                <!-- 결과 화면 -->
+                <div class="test-result" id="testResult" style="display: none;">
+                    <div class="result-image">
+                        <div class="result-icon" id="resultIcon">✨</div>
+                    </div>
+                    <h2 id="resultTitle">결과 제목</h2>
+                    <div class="result-description" id="resultDescription">
+                        <p>결과 설명이 여기 표시됩니다.</p>
+                    </div>
+                    <div class="result-actions">
+                        <button class="retry-btn" id="retryBtn">다시 해보기</button>
+                        <button class="share-btn" id="shareBtn">결과 공유하기</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 온라인 도구 모음 - 무료 성격 테스트</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/test.js"></script>
+</body>
+</html>
+

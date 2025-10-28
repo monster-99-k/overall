@@ -1,0 +1,23 @@
+# robots.txt for SEO optimization
+
+User-agent: *
+# Allow all important content
+Allow: /
+
+# Disallow unnecessary or duplicate content paths
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /tmp/
+Disallow: /private/
+
+# Block search results pages to avoid duplicate content
+Disallow: /search
+
+# Optional: Allow CSS/JS for proper rendering
+Allow: /*.css$
+Allow: /*.js$
+
+# Sitemap location for better indexing
+Sitemap: https://text-number.netlify.app/sitemap.xml
