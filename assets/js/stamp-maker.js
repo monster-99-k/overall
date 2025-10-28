@@ -123,7 +123,9 @@ function generateStamp() {
     // 도장 외부 스타일 (배경 없음, 테두리와 border-radius만)
     stampOutput.style.padding = `${padding}px`;
     stampOutput.style.border = `${currentBorder}px solid ${borderColor.value}`;
-    stampOutput.style.display = 'inline-block';
+    stampOutput.style.display = 'inline-flex';
+    stampOutput.style.alignItems = 'center';
+    stampOutput.style.justifyContent = 'center';
     stampOutput.style.position = 'relative';
     stampOutput.style.boxSizing = 'border-box';
     
@@ -188,6 +190,17 @@ function generateStamp() {
             // 4개씩 2줄
             fontSize = Math.floor(availableSize / 3.2);
             textToDisplay = `<div>${text[0]}${text[1]}${text[2]}${text[3]}</div><div>${text[4]}${text[5]}${text[6]}${text[7]}</div>`;
+        } else if (text.length >= 9) {
+            // 9자 이상: 4개씩 줄바꿈, 안쪽에서 크기 확장
+            fontSize = Math.floor(availableSize / 4.5);
+            const rows = Math.ceil(text.length / 4);
+            let html = '';
+            for (let i = 0; i < rows; i++) {
+                const start = i * 4;
+                const rowText = text.substring(start, start + 4);
+                html += `<div>${rowText}</div>`;
+            }
+            textToDisplay = html;
         } else {
             fontSize = Math.floor(availableSize / text.length);
             // 기본적으로 2개씩 배치
@@ -240,25 +253,13 @@ function generateStamp() {
         }
     }
     
-    // 텍스트 스타일 설정 (내부에 padding 적용)
-    // 기존 내용 제거
-    stampOutput.innerHTML = '';
-    
-    const textWrapper = document.createElement('div');
-    textWrapper.style.display = 'inline-flex';
-    textWrapper.style.flexDirection = 'column';
-    textWrapper.style.alignItems = 'center';
-    textWrapper.style.justifyContent = 'center';
-    textWrapper.style.color = textColor.value;
-    textWrapper.style.fontSize = `${fontSize}px`;
-    textWrapper.style.fontWeight = 'bold';
-    textWrapper.style.fontFamily = fontSelect.value;
-    textWrapper.style.lineHeight = '1.2';
-    textWrapper.style.textAlign = 'center';
-    textWrapper.style.boxSizing = 'border-box';
-    textWrapper.innerHTML = textToDisplay;
-    
-    stampOutput.appendChild(textWrapper);
+    // 텍스트 스타일 설정
+    stampOutput.style.fontSize = `${fontSize}px`;
+    stampOutput.style.fontWeight = 'bold';
+    stampOutput.style.fontFamily = fontSelect.value;
+    stampOutput.style.color = textColor.value;
+    stampOutput.style.textAlign = 'center';
+    stampOutput.innerHTML = textToDisplay;
 }
 
 // 페이지 로드 시 초기 도장 생성
