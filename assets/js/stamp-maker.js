@@ -112,8 +112,8 @@ resetBtn.addEventListener('click', () => {
 function generateStamp() {
     let text = stampText.value || '인';
     
-    // 사각형 도장이고 "인" 자 표시 옵션이 켜져있으면 글자 뒤에 "인" 추가
-    if (currentShape === 'square' && text && showInCheckbox.checked) {
+    // 사각형 도장이고 "인" 자 표시 옵션이 켜져있으면 글자 뒤에 "인" 추가 (8자 미만에서만)
+    if (currentShape === 'square' && text && showInCheckbox.checked && text.length < 8) {
         text = text + '인';
     }
     
@@ -128,6 +128,7 @@ function generateStamp() {
     stampOutput.style.justifyContent = 'center';
     stampOutput.style.position = 'relative';
     stampOutput.style.boxSizing = 'border-box';
+    stampOutput.style.flexDirection = 'column';
     
     // 모양에 따라 설정
     if (currentShape === 'circle') {
@@ -136,9 +137,18 @@ function generateStamp() {
         stampOutput.style.height = 'auto';
         stampOutput.style.borderRadius = '50%';
     } else {
-        // 사각형: 고정 크기
-        stampOutput.style.width = `${currentSize}px`;
-        stampOutput.style.height = `${currentSize}px`;
+        // 사각형: 글자 수에 따라 크기 동적 조정
+        const baseSize = currentSize;
+        let width = baseSize;
+        let height = 'auto';
+        
+        // 8글자 이상일 때 크기 확장 (4개씩 가로로 배치)
+        if (text.length >= 8) {
+            width = baseSize;
+        }
+        
+        stampOutput.style.width = `${width}px`;
+        stampOutput.style.height = typeof height === 'string' ? height : `${height}px`;
         stampOutput.style.borderRadius = '10px';
     }
     
@@ -175,30 +185,38 @@ function generateStamp() {
             }
             textToDisplay = html;
         } else if (text.length === 6) {
-            // 2개씩 3줄
-            fontSize = Math.floor(availableSize / 3);
-            let html = '';
-            for (let i = 0; i < text.length; i += 2) {
-                html += `<div>${text[i]}${text[i+1]}</div>`;
-            }
-            textToDisplay = html;
+            // 3개씩 2줄
+            const cols = 3, rows = 2;
+            const safeByCols = availableSize / cols;
+            const safeByRows = availableSize / rows;
+            fontSize = Math.floor(Math.min(safeByCols, safeByRows));
+            textToDisplay = `<div>${text[0]}${text[1]}${text[2]}</div><div>${text[3]}${text[4]}${text[5]}</div>`;
         } else if (text.length === 7) {
             // 7자: 더 크게
             fontSize = Math.floor(availableSize / 3);
             textToDisplay = `<div>${text[0]}${text[1]}${text[2]}${text[3]}</div><div>${text[4]}${text[5]}${text[6]}</div>`;
         } else if (text.length === 8) {
-            // 4개씩 2줄
-            fontSize = Math.floor(availableSize / 3.2);
-            textToDisplay = `<div>${text[0]}${text[1]}${text[2]}${text[3]}</div><div>${text[4]}${text[5]}${text[6]}${text[7]}</div>`;
-        } else if (text.length >= 9) {
-            // 9자 이상: 4개씩 줄바꿈, 안쪽에서 크기 확장
-            fontSize = Math.floor(availableSize / 4.5);
-            const rows = Math.ceil(text.length / 4);
+            // 4개씩 2줄 (정확히 8자) - 줄 내 강제 비줄바꿈
+            const cols = 4, rows = 2;
+            const safeByCols = availableSize / cols;
+            const safeByRows = availableSize / rows;
+            fontSize = Math.floor(Math.min(safeByCols, safeByRows)) - 1;
+            const row1 = `${text[0]}${text[1]}${text[2]}${text[3]}`;
+            const row2 = `${text[4]}${text[5]}${text[6]}${text[7]}`;
+            textToDisplay = `<div style="white-space:nowrap; width:100%; display:flex; justify-content:center;">${row1}</div>`+
+                             `<div style="white-space:nowrap; width:100%; display:flex; justify-content:center;">${row2}</div>`;
+        } else if (text.length > 8) {
+            // 8자 초과: 4개씩 자동 줄바꿈, 줄 내 비줄바꿈
+            const cols = 4;
+            const rows = Math.ceil(text.length / cols);
+            const safeByCols = availableSize / cols;
+            const safeByRows = availableSize / rows;
+            fontSize = Math.floor(Math.min(safeByCols, safeByRows)) - 1;
             let html = '';
             for (let i = 0; i < rows; i++) {
-                const start = i * 4;
-                const rowText = text.substring(start, start + 4);
-                html += `<div>${rowText}</div>`;
+                const start = i * cols;
+                const rowText = text.substring(start, start + cols);
+                html += `<div style=\"white-space:nowrap; width:100%; display:flex; justify-content:center;\">${rowText}</div>`;
             }
             textToDisplay = html;
         } else {
@@ -233,13 +251,23 @@ function generateStamp() {
                 html += `<div>${text[i]}${i+1 < text.length ? text[i+1] : ''}</div>`;
             }
             textToDisplay = html;
-        } else if (text.length === 7 || text.length === 8) {
-            // 7~8자: 더 크게
-            fontSize = Math.floor(availableSize / 2.2);
-            // 2개씩 배치 유지
+        } else if (text.length === 7) {
+            // 7자: 4/3 배치
+            fontSize = Math.floor(availableSize / 3);
+            textToDisplay = `<div>${text[0]}${text[1]}${text[2]}${text[3]}</div><div>${text[4]}${text[5]}${text[6]}</div>`;
+        } else if (text.length === 8) {
+            // 8자: 4개씩 2줄로 고정
+            fontSize = Math.floor(availableSize / 3.2);
+            textToDisplay = `<div>${text[0]}${text[1]}${text[2]}${text[3]}</div><div>${text[4]}${text[5]}${text[6]}${text[7]}</div>`;
+        } else if (text.length > 8) {
+            // 8자 초과: 4개씩 자동 줄바꿈
+            fontSize = Math.floor(availableSize / 4);
+            const rows = Math.ceil(text.length / 4);
             let html = '';
-            for (let i = 0; i < text.length; i += 2) {
-                html += `<div>${text[i]}${i+1 < text.length ? text[i+1] : ''}</div>`;
+            for (let i = 0; i < rows; i++) {
+                const start = i * 4;
+                const rowText = text.substring(start, start + 4);
+                html += `<div>${rowText}</div>`;
             }
             textToDisplay = html;
         } else {
